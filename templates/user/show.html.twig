@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ app.user.nom }} {{ app.user.prenom }}{% endblock %}
+
+{% block body %}
+    <h1>Le profil de {{ app.user.nom }} {{ app.user.prenom }}</h1>
+    <div class="container">
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ app.user.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ app.user.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ app.user.email }}</td>
+            </tr>
+            <tr>
+                <th>Télephone</th>
+                <td>{{ app.user.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Rue</th>
+                <td>{{ app.user.rue }}</td>
+            </tr>
+            <tr>
+                <th>Code postale</th>
+                <td>{{ app.user.codePastale }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ app.user.ville }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+        </div>
+            <a href="{{ path('app_home') }}" class="btn btn-lg btn-primary mt-3" >Retour à page d'accueil</a>
+
+            <a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn btn-lg btn-primary mt-3" >Modifier le profile</a>
+
+            <a href="{{ path('users_pass_modifier')}}" class="btn btn-lg btn-primary mt-3">Modifier le mot de passe</a>
+
+
+
+
+
+{% endblock %}

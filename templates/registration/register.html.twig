@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire d'inscription{% endblock %}
+
+{% block body %}
+
+
+    <br>
+
+
+    <section class="container">
+
+        <div class="row">
+            <div class="col">
+                <div class="col-6">
+                    {% for label,messages in app.flashes %}
+                    {% for message in messages %}
+                    <div class="alert alert-info mt-4"-{{ label }}">
+                    {{ message}}
+                </div>
+                {% endfor %}
+                {% endfor %}
+                <h1>Inscription</h1>
+
+                   {{ form_start(registrationForm) }}
+                <div class="mb-3">
+                    {{ form_label(registrationForm.nom,'Nom',{'label_attr':{'class':'form-label'}}) }}
+                    {{ form_row(registrationForm.nom,{'attr':{'class':'form-control'}}) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(registrationForm.prenom,'Prénom',{'label_attr':{'class':'form-label'}}) }}
+                    {{ form_row(registrationForm.prenom,{'attr':{'class':'form-control'}}) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(registrationForm.email,'Email',{'label_attr':{'class':'form-label'}}) }}
+                    {{ form_row(registrationForm.email,{'attr':{'class':'form-control'}}) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(registrationForm.telephone,'Télephone',{'label_attr':{'class':'form-label'}}) }}
+                    {{ form_row(registrationForm.telephone,{'attr':{'class':'form-control'}}) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(registrationForm.rue,'Rue',{'label_attr':{'class':'form-label'}}) }}
+                    {{ form_row(registrationForm.rue,{'attr':{'class':'form-control'}}) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(registrationForm.codePastale,'Code postale',{'label_attr':{'class':'form-label'}}) }}
+                    {{ form_row(registrationForm.codePastale,{'attr':{'class':'form-control'}}) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(registrationForm.ville,'VILLE',{'label_attr':{'class':'form-label'}}) }}
+                    {{ form_row(registrationForm.ville,{'attr':{'class':'form-control'}}) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_label(registrationForm.plainPassword,'Mot de passe',{'label_attr':{'class':'form-label'}}) }}
+                    {{ form_row(registrationForm.plainPassword,{'attr':{'class':'form-control'}}) }}
+                </div>
+
+
+                <button class="btn btn-lg btn-primary mt-3" type="submit">
+                    S'inscrire
+                </button>
+                {{ form_end(registrationForm) }}
+            </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

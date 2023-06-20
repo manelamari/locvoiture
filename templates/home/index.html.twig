@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+
+
+{% block body %}
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-info mt-4">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <br>
+    <br>
+
+
+
+    <div class="container-fluid">
+
+        <div class="grid">
+
+            {% for category in categorys %}
+                {% include 'home/detaills.html.twig' with {category:category} only %}
+            {%endfor%}
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Booking{% endblock %}
+
+{% block body %}
+    <h1>Nouvelle Résevation pour  {{ user.nom }}</h1>
+
+    {{ include('booking/_form.html.twig') }}
+
+{% endblock %}

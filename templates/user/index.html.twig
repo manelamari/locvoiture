@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <h1>Profil de {{ app.user.nom }} {{ app.user.prenom }}</h1>
+    {% for label,messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-success mt-4"-{{ label }}">
+                {{ message}}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <table class="table">
+
+            <tr>
+
+              <!--  <th>Password</th>-->
+
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Telephone</th>
+                <th>Ville</th>
+                <th>CodePastale</th>
+                <th>Rue</th>
+                <th>actions</th>
+            </tr>
+
+
+
+            <tr>
+
+               <!--<td>{{ app.user.password }}</td>-->
+
+                <td>{{app.user.nom }}</td>
+                <td>{{ app.user.prenom }}</td>
+                <td>{{ app.user.telephone }}</td>
+                <td>{{ app.user.ville }}</td>
+                <td>{{ app.user.codePastale }}</td>
+                <td>{{ app.user.rue }}</td>
+                <td>
+                    <a href="{{ path('app_user_show', {'id': app.user.id}) }}" class="btn btn-lg btn-primary mt-3" >gérer Mon profil</a>
+
+                </td>
+            </tr>
+
+
+
+
+    </table>
+
+
+{% endblock %}

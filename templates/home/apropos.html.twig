@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<div class="container bg-light" >
+    <div class="container px-4 text-center" style="display: block">
+        <div class="row gx-5">
+            <div class="col" style="display: flex">
+                <div class="p-3" style="display: inline-block">
+                    <div
+                            class=" rounded-circle img-thumbnail "
+                            style="
+                                    background-image: url('{{ asset('assets/upload/acceuil/groupe-automobileacceuiel.jpg') }}');
+                                    width: 100%;
+                                    height: 400px;
+
+                                    "></div>
+                    <h2 class="alert-info" style="font-style: italic" >Eurocar</h2>
+                    <p class="alert-info"> Rendre la mobilité plus accessible, plus facile et plus responsable .
+                        Notre  site est dédié à la location de voitures pour les  particuliers.
+                        Eurocar propose à chacun de repenser son rapport à la voiture en privilégiant son usage plutôt que sa propriété.
+
+                    </p>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="p-3">
+                    <h2 class="alert-info"  style="font-style: italic">Notre société</h2>
+                    <p class="alert-info">décidé d’étendre son service à tous les trajets en voiture du quotidien, pour faciliter la vie des voyageurs.
+                    </p>
+                    <div
+                            class=" rounded-circle img-thumbnail "
+                            style="
+
+                                    background-image: url('{{ asset('assets/upload/acceuil/vacances-voiture.jpg') }}');
+                                    width: 100%;
+                                    height: 400px;
+
+                                    "></div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

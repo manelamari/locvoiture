@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} tous nos voitures disponibles{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="container" >
+        <div class="btn-outline-info">
+
+            <h3>vous pouvez effectuer une recherche selon votre date de résevation</h3>
+        </div>
+        <div class="row">
+            {% for label,messages in app.flashes %}
+            {% for message in messages %}
+            <div class="alert alert-success mt-4"-{{ label }}">
+            {{ message}}
+        </div>
+        {% endfor %}
+        {% endfor %}
+            <div class="col-md-3">
+
+                {% include'home/_filter.html.twig'with {form:form} only %}
+            </div>
+            <div class="col-md-9">
+
+                <div class="grid">
+
+                    {% for voiture2 in voitures2 %}
+                        <div class="card">
+                            <h5 class="card-title" style="font-weight: bold;font-size: 1.5rem">{{ voiture2.modele}}</h5>
+                            <img class="img-fluid "  src="{{ asset('assets/upload/voitures/'~ voiture2 .image )}}" alt="{{ voiture2.modele }}"  >
+
+                            <h5> carburant: {{ voiture2.carburant }}</h5>
+                            <h5>boite:{{voiture2.boitevitesse }}</h5>
+                            <h5>Nombre de place:{{ voiture2.nombreDePlace}}</h5>
+                            <h5 class="text-danger">prix:{{ voiture2.prix /100}} €/ jour </h5>
+                            <a href="{{ path('app_booking_new',{'id': voiture2.id}) }}" data-target="{{ voiture2.id }}" class="btn btn-main btn-outline-primary m-2 px-2">Réserver Maintenant</a>
+
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+
+

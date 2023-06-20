@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Location de voiture{% endblock %}</title>
+<meta name="viewport"
+      content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    </head>
+    <body>
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-info text-white">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white" href="#">Eurocar</a>
+                <img src="{{ asset('images/Capture d’écran 2022-11-11 203345.jpg') }}" alt="logo"  id="logo">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" aria-current="page" href="{{ path('app_home') }}">Acceuil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ path('app_home_apropos') }}">Apropos de Nous</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ path('app_register') }}">Inscription</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ path('app_login') }}">Connexion</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ path('app_voitures') }}">Nos vehuécules</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ path('app_contact') }}">Contact</a>
+                        </li>
+
+                        <!--espace user-->
+                        {% if app.user%}
+                             {% if app.user.roles[0]=='ROLE_ADMIN' %}
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Espace Administrateur
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item bg-info" href="{{ path('admin') }}">Gestion De Site</a></li>
+                                <li><a class="dropdown-item bg-info" href="{{ path('app_user_index') }}">Gestion de profile</a></li>
+                                <li><a class="dropdown-item bg-info" href="{{ path('app_logout') }}">Déconnexion </a></li>
+
+                            </ul>
+                        </li>
+
+                        {% else %}
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Espace  {{ app.user.nom }}
+                            </a>
+                            <ul class="dropdown-menu"  aria-labelledby="navbarDropdown" >
+                                <li><a class="dropdown-item bg-info" href="{{ path('app_user_index') }}">Gestion de profile</a></li>
+                                <li><a class="dropdown-item bg-info" href="{{ path('voituressss') }}">Gestion des réservations </a></li>
+                                <li><a class="dropdown-item bg-info" href="{{ path('app_booking_index') }}">consulter mes réservations </a></li>
+                                <li><a class="dropdown-item bg-info" href="{{ path('app_logout') }}">Déconnexion </a></li>
+
+
+                            </ul>
+                        </li>
+                        <!--espace administrateur-->
+
+
+                    {% endif %}
+                    {% endif %}
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+        {% include"jumbtrom/ju.html.twig" %}
+        <br>
+        <br>
+    </header>
+
+
+        {% block body %}{% endblock %}
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+
+
+
+
+
+
+
+
+
+
+
+    {% include"footer/footer.html.twig" %}
+    </body>
+
+
+
+
+</html>
